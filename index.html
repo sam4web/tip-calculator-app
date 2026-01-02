@@ -21,8 +21,8 @@
             />
             <div class="calculator-container">
                 <div class="input-section">
-                    <div class="bill-input">
-                        <label for="bill">Bill</label>
+                    <div>
+                        <label for="bill-input">Bill</label>
                         <div class="input-container">
                             <img
                                 src="./assets/images/icon-dollar.svg"
@@ -31,13 +31,13 @@
                             <input
                                 type="number"
                                 name="bill"
-                                id="bill"
+                                id="bill-input"
                                 placeholder="0"
                             />
                         </div>
                     </div>
-                    <div class="tip-input">
-                        <label for="tip">Select Tip %</label>
+                    <div>
+                        <label for="tip-input">Select Tip %</label>
                         <div class="tip-options">
                             <button type="button">5%</button>
                             <button type="button">10%</button>
@@ -47,12 +47,12 @@
                             <input
                                 type="number"
                                 name="tip"
-                                id="tip"
+                                id="tip-input"
                                 placeholder="Custom"
                             />
                         </div>
                     </div>
-                    <div class="people-input">
+                    <div>
                         <label for="number-of-people">Number of People</label>
                         <div class="input-container">
                             <img
@@ -89,5 +89,6 @@
                 </div>
             </div>
         </main>
+        <script src="./src/js/script.js"></script>
     </body>
 </html>
