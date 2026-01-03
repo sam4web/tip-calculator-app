@@ -230,4 +230,14 @@ label {
     font-size: 18px;
     background-color: var(--green-400);
     color: var(--green-900);
+    transition: background-color 100ms linear;
+}
+
+.result-section button:hover {
+    background-color: var(--grey-200);
+}
+
+.result-section button:disabled {
+    opacity: 25%;
+    pointer-events: none;
 }

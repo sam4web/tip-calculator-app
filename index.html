@@ -31,7 +31,7 @@
                             <input
                                 type="number"
                                 name="bill"
-                                id="bill-input"
+                                id="bill"
                                 placeholder="0"
                             />
                         </div>
@@ -39,15 +39,23 @@
                     <div>
                         <label for="tip-input">Select Tip %</label>
                         <div class="tip-options">
-                            <button type="button">5%</button>
-                            <button type="button">10%</button>
-                            <button type="button">15%</button>
-                            <button type="button">25%</button>
-                            <button type="button">50%</button>
+                            <button class="tip-option" type="button">5%</button>
+                            <button class="tip-option" type="button">
+                                10%
+                            </button>
+                            <button class="tip-option" type="button">
+                                15%
+                            </button>
+                            <button class="tip-option" type="button">
+                                25%
+                            </button>
+                            <button class="tip-option" type="button">
+                                50%
+                            </button>
                             <input
                                 type="number"
                                 name="tip"
-                                id="tip-input"
+                                id="tip"
                                 placeholder="Custom"
                             />
                         </div>
@@ -85,7 +93,7 @@
                             <div class="result-value">$0.00</div>
                         </div>
                     </div>
-                    <button type="button">Reset</button>
+                    <button id="reset-button" type="button">Reset</button>
                 </div>
             </div>
         </main>
