@@ -22,7 +22,10 @@
             <div class="calculator-container">
                 <div class="input-section">
                     <div>
-                        <label for="bill-input">Bill</label>
+                        <div class="label-container">
+                            <label for="bill-input">Bill</label>
+                            <p class="error" id="bill-error"></p>
+                        </div>
                         <div class="input-container">
                             <img
                                 src="./assets/images/icon-dollar.svg"
@@ -37,7 +40,10 @@
                         </div>
                     </div>
                     <div>
-                        <label for="tip-input">Select Tip %</label>
+                        <div class="label-container">
+                            <label for="tip-input">Select Tip %</label>
+                            <p class="error" id="tip-error"></p>
+                        </div>
                         <div class="tip-options">
                             <button class="tip-option" type="button">5%</button>
                             <button class="tip-option" type="button">
@@ -61,7 +67,10 @@
                         </div>
                     </div>
                     <div>
-                        <label for="number-of-people">Number of People</label>
+                        <div class="label-container">
+                            <label for="people-input">Number of People</label>
+                            <p class="error" id="people-error"></p>
+                        </div>
                         <div class="input-container">
                             <img
                                 src="./assets/images/icon-person.svg"
@@ -69,8 +78,8 @@
                             />
                             <input
                                 type="number"
-                                name="number-of-people"
-                                id="number-of-people"
+                                name="people"
+                                id="people"
                                 placeholder="0"
                             />
                         </div>
@@ -83,14 +92,14 @@
                                 <p>Tip Amount</p>
                                 <p>/ person</p>
                             </div>
-                            <div class="result-value">$0.00</div>
+                            <p id="tip-amount" class="result-value">$0.00</p>
                         </div>
                         <div class="result-item">
                             <div class="result-label">
                                 <p>Total</p>
                                 <p>/ person</p>
                             </div>
-                            <div class="result-value">$0.00</div>
+                            <p id="total" class="result-value">$0.00</p>
                         </div>
                     </div>
                     <button id="reset-button" type="button">Reset</button>
