@@ -1,21 +1,50 @@
 <script setup lang="ts">
-const props = defineProps({
-    title: { type: String, required: true },
-    name: { type: String, required: true },
-    icon: { type: String, required: true },
+import { ref, watch } from "vue";
+
+const emit = defineEmits<{
+    (e: "update:value", value: number | null): void;
+}>();
+
+const props = defineProps<{
+    value: number | null;
+    title: string;
+    name: string;
+    icon: string;
+}>();
+
+const input = ref(props.value);
+const error = ref("");
+
+watch(input, (newVal) => {
+    if (typeof newVal === "string" || newVal === null) {
+        error.value = "";
+        emit("update:value", null);
+        return;
+    }
+    if (newVal === 0) error.value = "Can't be zero";
+    else error.value = "";
+    emit("update:value", Number(newVal));
 });
+
+watch(
+    () => props.value,
+    (newVal) => {
+        input.value = newVal;
+    },
+);
 </script>
 
 <template>
     <div class="field-wrapper">
         <div class="label-container">
             <label :for="props.name">{{ props.title }}</label>
-            <p class="error"></p>
+            <p v-if="error" class="error-message">{{ error }}</p>
         </div>
         <div class="input-container">
             <img :src="props.icon" :alt="`${props.name}-icon`" />
             <input
                 type="number"
+                v-model.number="input"
                 :name="props.name"
                 :id="props.name"
                 placeholder="0"

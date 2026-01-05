@@ -1,13 +1,31 @@
 <script setup lang="ts">
+import { toRaw, watch } from "vue";
+import { useCalculatorStore } from "../stores/calculator";
 import InputField from "./InputField.vue";
 import InputOptions from "./InputOptions.vue";
+
+const store = useCalculatorStore();
+watch(
+    () => store.values,
+    (newValues) => {
+        console.log("Values changed:", toRaw(newValues));
+    },
+    { deep: true, immediate: true },
+);
 </script>
 
 <template>
     <div class="input-section">
-        <InputField title="Bill" name="bill" icon="/images/icon-dollar.svg" />
+        <InputField
+            @update:value="(val) => (store.values.bill = val)"
+            :value="store.values.bill"
+            title="Bill"
+            name="bill"
+            icon="/images/icon-dollar.svg"
+        />
         <InputOptions />
         <InputField
+            :value="store.values.people"
             title="Number of people"
             name="people"
             icon="/images/icon-person.svg"
@@ -30,7 +48,7 @@ import InputOptions from "./InputOptions.vue";
     color: var(--grey-500);
 }
 
-.label-container .error {
+.label-container .error-message {
     color: var(--error);
 }
 
