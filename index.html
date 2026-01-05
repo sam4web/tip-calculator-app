@@ -2,110 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./assets/images/favicon-32x32.png"
-        />
-        <link rel="stylesheet" href="./src/css/style.css" />
         <title>Frontend Mentor | Tip calculator app</title>
     </head>
     <body>
-        <main>
-            <img
-                src="./assets/images/logo.svg"
-                class="logo-image"
-                alt="logo-image"
-            />
-            <div class="calculator-container">
-                <div class="input-section">
-                    <div>
-                        <div class="label-container">
-                            <label for="bill-input">Bill</label>
-                            <p class="error" id="bill-error"></p>
-                        </div>
-                        <div class="input-container">
-                            <img
-                                src="./assets/images/icon-dollar.svg"
-                                alt="dollar-icon"
-                            />
-                            <input
-                                type="number"
-                                name="bill"
-                                id="bill"
-                                placeholder="0"
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="label-container">
-                            <label for="tip-input">Select Tip %</label>
-                            <p class="error" id="tip-error"></p>
-                        </div>
-                        <div class="tip-options">
-                            <button class="tip-option" type="button">5%</button>
-                            <button class="tip-option" type="button">
-                                10%
-                            </button>
-                            <button class="tip-option" type="button">
-                                15%
-                            </button>
-                            <button class="tip-option" type="button">
-                                25%
-                            </button>
-                            <button class="tip-option" type="button">
-                                50%
-                            </button>
-                            <input
-                                type="number"
-                                name="tip"
-                                id="tip"
-                                placeholder="Custom"
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="label-container">
-                            <label for="people-input">Number of People</label>
-                            <p class="error" id="people-error"></p>
-                        </div>
-                        <div class="input-container">
-                            <img
-                                src="./assets/images/icon-person.svg"
-                                alt="person-icon"
-                            />
-                            <input
-                                type="number"
-                                name="people"
-                                id="people"
-                                placeholder="0"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div class="result-section">
-                    <div class="result-item-container">
-                        <div class="result-item">
-                            <div class="result-label">
-                                <p>Tip Amount</p>
-                                <p>/ person</p>
-                            </div>
-                            <p id="tip-amount" class="result-value">$0.00</p>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">
-                                <p>Total</p>
-                                <p>/ person</p>
-                            </div>
-                            <p id="total" class="result-value">$0.00</p>
-                        </div>
-                    </div>
-                    <button id="reset-button" type="button">Reset</button>
-                </div>
-            </div>
-        </main>
-        <script src="./src/js/script.js"></script>
+        <div id="app"></div>
+        <script type="module" src="/src/main.ts"></script>
     </body>
 </html>
