@@ -44,9 +44,14 @@ export const useCalculatorStore = defineStore("calculator", () => {
       Object.assign(results, initialResultState);
       return;
     }
+    const sanitizedPeople = Math.floor(people);
+    if (sanitizedPeople <= 0) {
+      Object.assign(results, initialResultState);
+      return;
+    }
     const totalTip = bill * (tip / 100);
-    const tipPerPerson = totalTip / people;
-    const totalPerPerson = (bill + totalTip) / people;
+    const tipPerPerson = totalTip / sanitizedPeople;
+    const totalPerPerson = (bill + totalTip) / sanitizedPeople;
     Object.assign(results, {
       tipAmount: tipPerPerson.toFixed(2),
       total: totalPerPerson.toFixed(2),
