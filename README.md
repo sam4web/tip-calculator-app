@@ -29,18 +29,19 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Frontend Mentor Solutions]()
-- Live Site URL: [Github Pages]()
+- Live Site URL: [Github Pages](https://sam4web.github.io/tip-calculator-app/)
 
 ## My process
 
 ### Built with
 
+- [Vue](https://vuejs.org/) 
+- TypeScript
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Vue](https://vuejs.org/) 
 
 ## Author
 
