@@ -1,31 +1,29 @@
 <script setup lang="ts">
-import { toRaw, watch } from "vue";
+import { watchEffect } from "vue";
 import { useCalculatorStore } from "../stores/calculator";
 import InputField from "./InputField.vue";
-import InputOptions from "./InputOptions.vue";
+import TipOptions from "./TipOptions.vue";
 
-const store = useCalculatorStore();
-watch(
-    () => store.values,
-    (newValues) => {
-        console.log("Values changed:", toRaw(newValues));
-    },
-    { deep: true, immediate: true },
-);
+const { inputs, calculate } = useCalculatorStore();
+watchEffect(() => calculate());
 </script>
 
 <template>
     <div class="input-section">
         <InputField
-            @update:value="(val) => (store.values.bill = val)"
-            :value="store.values.bill"
+            @update:value="(val) => (inputs.bill = val)"
+            :value="inputs.bill"
             title="Bill"
             name="bill"
             icon="/images/icon-dollar.svg"
         />
-        <InputOptions />
+        <TipOptions
+            @update:value="(val) => (inputs.tip = val)"
+            :value="inputs.tip"
+        />
         <InputField
-            :value="store.values.people"
+            @update:value="(val) => (inputs.people = val)"
+            :value="inputs.people"
             title="Number of people"
             name="people"
             icon="/images/icon-person.svg"

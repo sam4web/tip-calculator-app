@@ -1,4 +1,44 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, watch } from "vue";
+
+const emit = defineEmits<{
+    (e: "update:value", value: number | null): void;
+}>();
+
+const props = defineProps<{
+    value: number | null;
+}>();
+
+const options = [5, 10, 15, 25, 50];
+const inputMode = ref<"option" | "custom">("custom");
+const input = ref(props.value);
+const inputRef = ref();
+
+const handleOptionSelect = (option: number) => {
+    input.value = option;
+    inputMode.value = "option";
+    inputRef.value.value = "";
+    emit("update:value", Number(option));
+};
+
+const handleCustomInput = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    const value = parseFloat(target.value.trim());
+    if (isNaN(value)) {
+        emit("update:value", null);
+        return;
+    }
+    inputMode.value = "custom";
+    emit("update:value", Number(value));
+};
+
+watch(
+    () => props.value,
+    (newVal) => {
+        input.value = newVal;
+    },
+);
+</script>
 
 <template>
     <div>
@@ -7,12 +47,21 @@
             <p class="error" id="tip-error"></p>
         </div>
         <div class="tip-option-grid">
-            <button>5%</button>
-            <button>10%</button>
-            <button>15%</button>
-            <button>25%</button>
-            <button>50%</button>
-            <input type="number" name="tip" id="tip" placeholder="Custom" />
+            <button
+                v-for="option in options"
+                :class="{ active: inputMode === 'option' && input === option }"
+                @click="handleOptionSelect(option)"
+            >
+                {{ option }}%
+            </button>
+            <input
+                ref="inputRef"
+                @input="handleCustomInput"
+                type="number"
+                name="tip"
+                id="tip"
+                placeholder="Custom"
+            />
         </div>
     </div>
 </template>

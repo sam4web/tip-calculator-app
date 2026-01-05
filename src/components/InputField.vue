@@ -16,13 +16,16 @@ const input = ref(props.value);
 const error = ref("");
 
 watch(input, (newVal) => {
-    if (typeof newVal === "string" || newVal === null) {
-        error.value = "";
+    error.value = "";
+    if (newVal === null || isNaN(newVal as number)) {
         emit("update:value", null);
         return;
     }
-    if (newVal === 0) error.value = "Can't be zero";
-    else error.value = "";
+    if (newVal === 0) {
+        error.value = "Can't be zero";
+        emit("update:value", null);
+        return;
+    }
     emit("update:value", Number(newVal));
 });
 
@@ -40,7 +43,7 @@ watch(
             <label :for="props.name">{{ props.title }}</label>
             <p v-if="error" class="error-message">{{ error }}</p>
         </div>
-        <div class="input-container">
+        <div class="input-container" :class="{ error: error.length }">
             <img :src="props.icon" :alt="`${props.name}-icon`" />
             <input
                 type="number"
@@ -69,7 +72,11 @@ watch(
     transition: border-color 100ms linear;
 }
 
+.input-container.error {
+    border-color: var(--error);
+}
+
 .input-container:focus-within {
-    border-color: var(--green-400);
+    border-color: var(--green-400) !important;
 }
 </style>

@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useCalculatorStore } from "../stores/calculator";
+
+const store = useCalculatorStore();
+const { results, reset } = store;
+const { isValidInput } = storeToRefs(store);
+</script>
+
 <template>
     <div class="result-section">
         <div class="result-item-container">
@@ -6,17 +15,36 @@
                     <p>Tip Amount</p>
                     <p>/ person</p>
                 </div>
-                <p id="tip-amount" class="result-value">$0.00</p>
+                <p id="tip-amount" class="result-value">
+                    <template
+                        v-if="results.tipAmount || results.tipAmount === 0"
+                    >
+                        ${{ results.tipAmount }}
+                    </template>
+                    <template v-else>$0.00</template>
+                </p>
             </div>
             <div class="result-item">
                 <div class="result-label">
                     <p>Total</p>
                     <p>/ person</p>
                 </div>
-                <p id="total" class="result-value">$0.00</p>
+                <p id="total" class="result-value">
+                    <template v-if="results.total || results.total === 0">
+                        ${{ results.total }}
+                    </template>
+                    <template v-else>$0.00</template>
+                </p>
             </div>
         </div>
-        <button id="reset-button" type="button">Reset</button>
+        <button
+            id="reset-button"
+            :disabled="!isValidInput"
+            v-on:click="reset"
+            type="button"
+        >
+            Reset
+        </button>
     </div>
 </template>
 
