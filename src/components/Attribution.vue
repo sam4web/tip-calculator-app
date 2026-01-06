@@ -19,7 +19,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    max-width: 400px;
+    max-width: 450px;
     width: 100%;
     text-align: center;
     padding: 0.75rem 0.45rem;
