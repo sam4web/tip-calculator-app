@@ -2,6 +2,7 @@
 import InputSection from "./components/InputSection.vue";
 import Logo from "./components/Logo.vue";
 import ResultSection from "./components/ResultSection.vue";
+import Attribution from "./components/Attribution.vue";
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import ResultSection from "./components/ResultSection.vue";
             <InputSection />
             <ResultSection />
         </div>
+        <Attribution />
     </main>
 </template>
 

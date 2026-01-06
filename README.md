@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor Solutions]()
+- Solution URL: [Frontend Mentor Solutions](https://www.frontendmentor.io/solutions/tip-calculator-app-Owlq2y-3Cb/)
 - Live Site URL: [Github Pages](https://sam4web.github.io/tip-calculator-app/)
 
 ## My process
