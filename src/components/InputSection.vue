@@ -15,7 +15,7 @@ watchEffect(() => calculate());
             :value="inputs.bill"
             title="Bill"
             name="bill"
-            icon="/images/icon-dollar.svg"
+            icon="images/icon-dollar.svg"
         />
         <TipOptions
             @update:value="(val) => (inputs.tip = val)"
@@ -26,7 +26,7 @@ watchEffect(() => calculate());
             :value="inputs.people"
             title="Number of people"
             name="people"
-            icon="/images/icon-person.svg"
+            icon="images/icon-person.svg"
         />
     </div>
 </template>
